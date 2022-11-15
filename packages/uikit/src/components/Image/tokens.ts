@@ -2,6 +2,15 @@
  * @see https://github.com/pancakeswap/pancake-frontend/blob/develop/src/config/constants/tokens.ts
  */
 const tokens = {
+  wkd: {
+    symbol: "WKD",
+    address: {
+      56: "0x5344C20FD242545F31723689662AC12b9556fC3d",
+      97: "",
+    },
+    decimals: 9,
+    projectLink: "https://wakandainu.com/",
+  },
   cake: {
     symbol: "CAKE",
     address: {
