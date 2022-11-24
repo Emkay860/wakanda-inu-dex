@@ -374,7 +374,7 @@ export default function Swap() {
   return (
     <Page removePadding={isChartExpanded} hideFooterOnDesktop={isChartExpanded}>
       <Flex width="100%" justifyContent="center" position="relative">
-        {/* {!isMobile && isChartSupported && (
+        {!isMobile && isChartSupported && (
           <PriceChartContainer
             inputCurrencyId={inputCurrencyId}
             inputCurrency={currencies[Field.INPUT]}
@@ -619,11 +619,11 @@ export default function Swap() {
                 <UnsupportedCurrencyFooter currencies={[currencies.INPUT, currencies.OUTPUT]} />
               )}
             </StyledInputCurrencyWrapper>
-          </StyledSwapContainer> 
-        </Flex> */}
-        <Text textAlign="center" mx="auto" mt={150}>
+          </StyledSwapContainer>
+        </Flex>
+        {/* <Text textAlign="center" mx="auto" mt={150}>
           Coming soon...
-        </Text>
+        </Text> */}
       </Flex>
     </Page>
   )

@@ -86,7 +86,7 @@ export default function Pool() {
 
   return (
     <Page>
-      {/* <AppBody>
+      <AppBody>
         <AppHeader title={t('Your Liquidity')} subtitle={t('Remove liquidity to receive tokens back')} />
         <Body>
           {renderBody()}
@@ -110,10 +110,10 @@ export default function Pool() {
             </Button>
           </Link>
         </CardFooter>
-      </AppBody> */}
-      <Text textAlign="center" mx="auto" mt={150}>
+      </AppBody>
+      {/* <Text textAlign="center" mx="auto" mt={150}>
         Coming soon...
-      </Text>
+      </Text> */}
     </Page>
   )
 }

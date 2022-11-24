@@ -168,7 +168,7 @@ export default function RemoveLiquidity() {
       { name: 'verifyingContract', type: 'address' },
     ]
     const domain = {
-      name: 'Pancake LPs',
+      name: 'Wakanda LP',
       version: '1',
       chainId,
       verifyingContract: pair.liquidityToken.address,
@@ -415,10 +415,13 @@ export default function RemoveLiquidity() {
           }),
       ),
     )
-
+    console.log('safe gas', safeGasEstimates)
     const indexOfSuccessfulEstimation = safeGasEstimates.findIndex((safeGasEstimate) =>
       BigNumber.isBigNumber(safeGasEstimate),
     )
+
+    // console.log(methodNames[0], await routerContract.estimateGas[methodNames[0]](...args))
+    // console.log(methodNames[1], routerContract.estimateGas[methodNames[1]])
 
     // all estimations failed...
     if (indexOfSuccessfulEstimation === -1) {

@@ -70,11 +70,12 @@ const MenuIcon: React.FC<{ avatarSrc?: string; variant: Variant }> = ({ avatarSr
     return <PendingMenuIcon />;
   }
 
-  if (!avatarSrc) {
-    return <NoProfileMenuIcon />;
-  }
+  // if (!avatarSrc) {
+  //   return <NoProfileMenuIcon />;
+  // }
 
-  return <ProfileIcon src={avatarSrc} height={40} width={40} />;
+  // return <ProfileIcon src={avatarSrc} height={40} width={40} />;
+  return <NoProfileMenuIcon />;
 };
 
 export default MenuIcon;

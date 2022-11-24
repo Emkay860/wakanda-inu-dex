@@ -90,88 +90,94 @@ const config = {
   },
   async redirects() {
     return [
-      {
-        source: '/send',
-        destination: '/swap',
-        permanent: true,
-      },
-      {
-        source: '/swap/:outputCurrency',
-        destination: '/swap?outputCurrency=:outputCurrency',
-        permanent: true,
-      },
-      {
-        source: '/create/:currency*',
-        destination: '/add/:currency*',
-        permanent: true,
-      },
-      {
-        source: '/farms/archived',
-        destination: '/farms/history',
-        permanent: true,
-      },
-      {
-        source: '/pool',
-        destination: '/liquidity',
-        permanent: true,
-      },
-      {
-        source: '/staking',
-        destination: '/pools',
-        permanent: true,
-      },
-      {
-        source: '/syrup',
-        destination: '/pools',
-        permanent: true,
-      },
-      {
-        source: '/collectibles',
-        destination: '/nfts',
-        permanent: true,
-      },
-
-      // newly added
       // {
-      //   source: '/',
+      //   source: '/send',
       //   destination: '/swap',
       //   permanent: true,
       // },
+      // {
+      //   source: '/swap/:outputCurrency',
+      //   destination: '/swap?outputCurrency=:outputCurrency',
+      //   permanent: true,
+      // },
+      // {
+      //   source: '/create/:currency*',
+      //   destination: '/add/:currency*',
+      //   permanent: true,
+      // },
+      // {
+      //   source: '/farms/archived',
+      //   destination: '/farms/history',
+      //   permanent: true,
+      // },
+      // {
+      //   source: '/pool',
+      //   destination: '/liquidity',
+      //   permanent: true,
+      // },
+      // {
+      //   source: '/staking',
+      //   destination: '/pools',
+      //   permanent: true,
+      // },
+      // {
+      //   source: '/syrup',
+      //   destination: '/pools',
+      //   permanent: true,
+      // },
+      // {
+      //   source: '/collectibles',
+      //   destination: '/nfts',
+      //   permanent: true,
+      // },
+
+      // newly added
       {
-        source: '/farms/auction',
-        destination: '/farms',
-        permanent: true,
-      },
-      {
-        source: '/add/:currrency*',
-        destination: '/liquidity',
-        permanent: true,
-      },
-      {
-        source: '/remove/:currrency*',
-        destination: '/liquidity',
+        source: '/',
+        destination: '/swap',
         permanent: true,
       },
       // {
-      //   source: '/ifo',
-      //   destination: '/ifo',
+      //   source: '/pools',
+      //   destination: '/pools',
+      //   permanent: true,
+
+      // },
+      // {
+      // source: '/farms/auction',
+      //   destination: '/farms',
       //   permanent: true,
       // },
-      {
-        source: '/ifo/history',
-        destination: '/ifo',
-        permanent: true,
-      },
-      {
-        source: '/find',
-        destination: '/404',
-        permanent: true,
-      },
-      {
-        source: '/limit-orders',
-        destination: '/404',
-        permanent: true,
-      },
+      // {
+      //   source: '/add/:currrency*',
+      //   destination: '/liquidity',
+      //   permanent: true,
+      // },
+      // {
+      //   source: '/remove/:currrency*',
+      //   destination: '/liquidity',
+      //   permanent: true,
+      // },
+      // {
+      //   source: '/ifo',
+      //   destination: '/404',
+      //   permanent: true,
+      // },
+      // {
+      //   source: '/ifo/history',
+      //   destination: '/404',
+      //   permanent: true,
+      // },
+      // {
+      //   source: '/find',
+      //   destination: '/404',
+      //   permanent: true,
+      // },
+      // {
+      //   source: '/limit-orders',
+      //   destination: '/404',
+      //   permanent: true,
+      // },
     ]
   },
 }

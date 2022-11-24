@@ -17,14 +17,14 @@ const AprRow: React.FC<AprRowProps> = ({ pool, stakedBalance, performanceFee = 0
 
   const tooltipContent = vaultKey
     ? t('APY includes compounding, APR doesn’t. This pool’s CAKE is compounded automatically, so we show APY.')
-    : t('This pool’s rewards aren’t compounded automatically, so we show APR')
+    : t('This pool’s rewards aren’t compounded automatically, so we show APY')
 
   const { targetRef, tooltip, tooltipVisible } = useTooltip(tooltipContent, { placement: 'bottom-start' })
 
   return (
     <Flex alignItems="center" justifyContent="space-between">
       {tooltipVisible && tooltip}
-      <TooltipText ref={targetRef}>{vaultKey ? `${t('APY')}:` : `${t('APR')}:`}</TooltipText>
+      <TooltipText ref={targetRef}>{vaultKey ? `${t('APY')}:` : `${t('APY')}:`}</TooltipText>
       <Apr pool={pool} stakedBalance={stakedBalance} performanceFee={performanceFee} showIcon={showIcon} />
     </Flex>
   )

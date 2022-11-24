@@ -82,7 +82,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, displayApr, removed, wkdPrice
         />
         {!removed && (
           <Flex justifyContent="space-between" alignItems="center">
-            <Text>{t('APR')}:</Text>
+            <Text>{t('APY')}:</Text>
             <Text bold style={{ display: 'flex', alignItems: 'center' }}>
               {farm.apr ? (
                 <ApyButton
