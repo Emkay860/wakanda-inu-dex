@@ -3,13 +3,13 @@ import { bscTokens } from './tokens'
 import { CAKE_BNB_LP_MAINNET } from './farms'
 import { Ifo } from './types'
 
-export const cakeBnbLpToken = new Token(ChainId.BSC, CAKE_BNB_LP_MAINNET, 18, 'CAKE-BNB LP')
+export const cakeBnbLpToken = new Token(ChainId.BSC, CAKE_BNB_LP_MAINNET, 18, 'WKD-BNB LP')
 
 const ifos: Ifo[] = [
   {
     id: 'peel',
     address: '0x35Bb6Dd4E8C63491057c32621c8cDdE43BabE201',
-    isActive: false,
+    isActive: true,
     name: 'Meta Apes ($PEEL)',
     symbol: 'PEEL',
     token: bscTokens.peel,
