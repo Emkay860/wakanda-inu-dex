@@ -18,6 +18,24 @@ const WKD_TESTNET = new Token(
   'https://www.wakandainu.com/',
 )
 
+export const WAKANDA_MAINET = new Token(
+  ChainId.BSC,
+  '0x5344C20FD242545F31723689662AC12b9556fC3d',
+  9,
+  'WKD',
+  'Wakanda Inu Token',
+  'https://www.wakandainu.com/',
+)
+
+export const WKD_TESTNET2 = new Token(
+  ChainId.BSC_TESTNET,
+  '0xA119Da38A1CCf3FD08ac2a69428eEA6F787Bd211',
+  9,
+  'WKD',
+  'Wakanda Inu Token',
+  'https://www.wakandainu.com/',
+)
+
 const CAKE_MAINNET = new Token(
   ChainId.BSC,
   '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
@@ -2348,7 +2366,7 @@ export const bscTokens = {
   ),
   peel: new Token(
     ChainId.BSC,
-    '0x734548a9e43d2D564600b1B2ed5bE9C2b911c6aB',
+    '0x39ABFcb2FcAAE1787a22C6ac3Dd4501d7D3c16b0',
     18,
     'PEEL',
     'Meta Apes Peel',
@@ -2359,6 +2377,7 @@ export const bscTokens = {
 export const bscTestnetTokens = {
   wbnb: WBNB[ChainId.BSC_TESTNET],
   wkd: WKD_TESTNET,
+  wkd2: WKD_TESTNET2,
   cake: CAKE_TESTNET,
   busd: BUSD_TESTNET,
   syrup: new Token(

@@ -4,7 +4,7 @@ import { Contract } from '@ethersproject/contracts'
 
 import { IfoStatus, PoolIds } from 'config/constants/types'
 
-// PoolCharacteristics retrieved from the contract
+// PoolCharacteristics retrieved from the contract || launchPad characteristics
 export interface PoolCharacteristics {
   raisingAmountPool: BigNumber
   offeringAmountPool: BigNumber

@@ -10,7 +10,7 @@ interface GenericIfoCardElements {
 }
 
 const GenericIfoCard: React.FC<CardConfigReturn & GenericIfoCardElements> = ({
-  title,
+  // title,
   variant,
   action,
   content,
@@ -25,13 +25,9 @@ const GenericIfoCard: React.FC<CardConfigReturn & GenericIfoCardElements> = ({
         <CardHeader p="16px 24px" variant={variant}>
           <Flex justifyContent="space-between" alignItems="center">
             <Text bold fontSize="20px" lineHeight={1}>
-              {title}
+              {/* {title} */}
+              No Active LaunchPad
             </Text>
-            {tooltip && (
-              <div ref={targetRef} style={{ display: 'flex', marginLeft: '8px' }}>
-                <HelpIcon />
-              </div>
-            )}
           </Flex>
         </CardHeader>
         <CardBody p="24px">

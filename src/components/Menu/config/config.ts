@@ -53,14 +53,14 @@ const config: (
         },
       ],
     },
-    // {
-    //   label: 'IFO',
-    //   href: '/ifo',
-    //   icon: RocketIcon,
-    //   hideSubNav: true,
-    //   supportChainIds: [ChainId.BSC],
-    //   items: [],
-    // },
+    {
+      label: 'IFO',
+      href: '/ifo',
+      icon: RocketIcon,
+      hideSubNav: true,
+      // supportChainIds: [ChainId.BSC],
+      items: [],
+    },
   ].filter((item) => filterItemBySupportChainId(item, chainId))
 
 export default config

@@ -20,6 +20,10 @@ import { BIG_TEN } from 'utils/bigNumber'
 import { getBscScanLink } from 'utils'
 import { formatBigNumber } from 'utils/formatBalance'
 import { FlexGap } from 'components/Layout/Flex'
+import { useCurrentBlock } from 'state/block/hooks'
+import { getStatus } from 'views/Ifos/hooks/helpers'
+import { useLaunchPad } from 'views/Ifos/hooks/useLaunchPad'
+import React, { useEffect, useState } from 'react'
 
 const SmartContractIcon: React.FC<SvgProps> = (props) => {
   return (
@@ -58,7 +62,7 @@ const FIXED_MIN_DOLLAR_FOR_ACHIEVEMENT = BIG_TEN
 
 interface Props {
   ifo: Ifo
-  publicIfoData: PublicIfoData
+  // publicIfoData: PublicIfoData
 }
 
 const Container = styled(Flex)`
@@ -84,44 +88,49 @@ const InlinePrize = styled(Flex)`
   vertical-align: top;
 `
 
-const IfoAchievement: React.FC<Props> = ({ ifo, publicIfoData }) => {
+const IfoAchievement: React.FC<Props> = ({ ifo }) => {
+  const { fetchBlock } = useLaunchPad()
   const { t } = useTranslation()
   const tokenName = ifo.token.symbol?.toLowerCase()
   const projectUrl = ifo.token.projectLink
   const campaignTitle = ifo.name
-  const minLpForAchievement = publicIfoData.thresholdPoints
-    ? formatBigNumber(publicIfoData.thresholdPoints, 3)
-    : FIXED_MIN_DOLLAR_FOR_ACHIEVEMENT.div(publicIfoData.currencyPriceInUSD).toNumber().toFixed(3)
+
+  const [block, setBlock] = useState<any>()
+
+  const fetchBlockDetails = async () => {
+    const result = await fetchBlock()
+    const format = {
+      startBlock: result ? Number(result?.startBlock) : 0,
+      endBlock: result ? Number(result?.endBlock) : 0,
+    }
+    setBlock(format)
+  }
+
+  useEffect(() => {
+    fetchBlockDetails()
+  }, [])
+  const currentBlock = useCurrentBlock()
+  const status = getStatus(currentBlock, block?.startBlock, block?.endBlock)
 
   return (
     <Container p="16px" pb="32px">
-      <AchievementFlex isFinished={publicIfoData.status === 'finished'} alignItems="flex-start" flex={1}>
+      <AchievementFlex isFinished={status === 'finished'} alignItems="flex-start" flex={1}>
         <Image src={`/images/achievements/ifo-${tokenName}.svg`} width={56} height={56} mr="8px" />
         <Flex flexDirection="column" ml="8px">
           <Text color="secondary" fontSize="12px">
-            {`${t('Achievement')}:`}
+            {`${t('LaunchPad Details')}:`}
           </Text>
           <Flex>
             <Text bold mr="8px" lineHeight={1.2}>
               {t('IFO Shopper: %title%', { title: campaignTitle })}
               <InlinePrize alignItems="center" ml="8px">
                 <PrizeIcon color="textSubtle" width="16px" mr="4px" />
-                <Text lineHeight={1.2} color="textSubtle">
+                {/* <Text lineHeight={1.2} color="textSubtle">
                   {publicIfoData.numberPoints}
-                </Text>
+                </Text> */}
               </InlinePrize>
             </Text>
           </Flex>
-          {publicIfoData.currencyPriceInUSD.gt(0) ? (
-            <Text color="textSubtle" fontSize="12px">
-              {t('Commit ~%amount% %symbol% in total to earn!', {
-                amount: minLpForAchievement,
-                symbol: ifo.currency === bscTokens.cake ? 'CAKE' : 'LP',
-              })}
-            </Text>
-          ) : (
-            <Skeleton minHeight={18} width={80} />
-          )}
           <FlexGap gap="16px" pt="24px" pl="4px">
             <Link external href={projectUrl}>
               <LanguageIcon color="textSubtle" />

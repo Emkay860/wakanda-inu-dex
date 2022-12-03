@@ -9,10 +9,10 @@ import { useProfile } from 'state/profile/hooks'
 import useCriterias from 'views/Ifos/hooks/v3/useCriterias'
 import { PublicIfoData, WalletIfoData } from 'views/Ifos/types'
 import { EnableStatus, CardConfigReturn } from '../types'
-import IfoCardTokens from './IfoCardTokens'
+// import IfoCardTokens from './IfoCardTokens'
 import IfoCardActions from './IfoCardActions'
-import IfoCardDetails from './IfoCardDetails'
-import IfoVestingCard from './IfoVestingCard'
+// import IfoCardDetails from './IfoCardDetails'
+// import IfoVestingCard from './IfoVestingCard'
 
 const StyledCard = styled(Card)`
   width: 100%;
@@ -93,59 +93,48 @@ const SmallCard: React.FC<IfoCardProps> = ({ poolId, ifo, publicIfoData, walletI
 
   const { admissionProfile, pointThreshold, vestingInformation } = publicIfoData[poolId]
 
-  const { needQualifiedNFT, needQualifiedPoints } = useMemo(() => {
-    return ifo.version >= 3.1 && poolId === PoolIds.poolBasic
-      ? {
-          needQualifiedNFT: Boolean(admissionProfile),
-          needQualifiedPoints: pointThreshold ? pointThreshold > 0 : false,
-        }
-      : {}
-  }, [ifo.version, admissionProfile, pointThreshold, poolId])
+  // const { needQualifiedNFT, needQualifiedPoints } = useMemo(() => {
+  //   return ifo.version >= 3.1 && poolId === PoolIds.poolBasic
+  //     ? {
+  //         needQualifiedNFT: Boolean(admissionProfile),
+  //         needQualifiedPoints: pointThreshold ? pointThreshold > 0 : false,
+  //       }
+  //     : {}
+  // }, [ifo.version, admissionProfile, pointThreshold, poolId])
 
-  const config = cardConfig(t, poolId, {
-    version: ifo.version,
-    needQualifiedNFT,
-    needQualifiedPoints,
-  })
+  // const config = cardConfig(t, poolId, {
+  //   version: ifo.version,
+  //   needQualifiedNFT,
+  //   needQualifiedPoints,
+  // })
 
-  const { hasActiveProfile, isLoading: isProfileLoading } = useProfile()
-  const { targetRef, tooltip, tooltipVisible } = useTooltip(config.tooltip, { placement: 'bottom' })
+  // const { hasActiveProfile, isLoading: isProfileLoading } = useProfile()
+  // const { targetRef, tooltip, tooltipVisible } = useTooltip(config.tooltip, { placement: 'bottom' })
 
-  const isLoading = isProfileLoading || publicIfoData.status === 'idle'
+  // const isLoading = isProfileLoading || publicIfoData.status === 'idle'
 
-  const { isEligible, criterias } = useCriterias(walletIfoData[poolId], {
-    needQualifiedNFT,
-    needQualifiedPoints,
-  })
+  // const { isEligible, criterias } = useCriterias(walletIfoData[poolId], {
+  //   needQualifiedNFT,
+  //   needQualifiedPoints,
+  // })
 
-  const isVesting = useMemo(() => {
-    return (
-      account &&
-      ifo.version >= 3.2 &&
-      vestingInformation.percentage > 0 &&
-      publicIfoData.status === 'finished' &&
-      walletIfoData[poolId].amountTokenCommittedInLP.gt(0)
-    )
-  }, [account, ifo, poolId, publicIfoData, vestingInformation, walletIfoData])
+  // const isVesting = useMemo(() => {
+  //   return (
+  //     account &&
+  //     ifo.version >= 3.2 &&
+  //     vestingInformation.percentage > 0 &&
+  //     publicIfoData.status === 'finished' &&
+  //     walletIfoData[poolId].amountTokenCommittedInLP.gt(0)
+  //   )
+  // }, [account, ifo, poolId, publicIfoData, vestingInformation, walletIfoData])
 
   return (
     <>
-      {tooltipVisible && tooltip}
+      {/* {tooltipVisible && tooltip} */}
       <StyledCard>
-        <CardHeader p="16px 24px" variant={config.variant}>
-          <Flex justifyContent="space-between" alignItems="center">
-            <Text bold fontSize="20px" lineHeight={1}>
-              {config.title}
-            </Text>
-            <div ref={targetRef}>
-              <HelpIcon />
-            </div>
-          </Flex>
-        </CardHeader>
-        <CardBody p="12px">
-          {isVesting ? (
-            <IfoVestingCard ifo={ifo} poolId={poolId} publicIfoData={publicIfoData} walletIfoData={walletIfoData} />
-          ) : (
+        {/* */}
+        {/* <CardBody p="12px">
+
             <>
               <IfoCardTokens
                 criterias={criterias}
@@ -179,8 +168,7 @@ const SmallCard: React.FC<IfoCardProps> = ({ poolId, ifo, publicIfoData, walletI
                 walletIfoData={walletIfoData}
               />
             </>
-          )}
-        </CardBody>
+        </CardBody> */}
       </StyledCard>
     </>
   )

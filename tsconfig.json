@@ -1,6 +1,7 @@
 {
   "extends": "tsconfig/nextjs.json",
   "compilerOptions": {
+    "resolveJsonModule": true,
     "baseUrl": "src",
     "strictNullChecks": false,
     "noImplicitAny": false,
@@ -13,5 +14,11 @@
     }
   },
   "exclude": ["node_modules", "cypress", "/apps/*"],
-  "include": ["next-env.d.ts", "./src/**/*.ts", "./src/**/*.tsx"]
+  "include": [
+    "next-env.d.ts",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "src/views/Pools/hooks/useWkdCommit.js",
+    "src/views/Pools/hooks/useWkdCommit.js"
+  ]
 }

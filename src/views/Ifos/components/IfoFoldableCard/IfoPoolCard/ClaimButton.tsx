@@ -12,7 +12,7 @@ interface Props {
   walletIfoData: WalletIfoData
 }
 
-const ClaimButton: React.FC<Props> = ({ poolId, ifoVersion, walletIfoData }) => {
+const ClaimButton: React.FC<Props> = ({ poolId, walletIfoData }) => {
   const userPoolCharacteristics = walletIfoData[poolId]
   const { t } = useTranslation()
   const { toastSuccess } = useToast()
@@ -23,9 +23,7 @@ const ClaimButton: React.FC<Props> = ({ poolId, ifoVersion, walletIfoData }) => 
   const handleClaim = async () => {
     const receipt = await fetchWithCatchTxError(() => {
       setPendingTx(true)
-      return ifoVersion === 1
-        ? walletIfoData.contract.harvest()
-        : walletIfoData.contract.harvestPool(poolId === PoolIds.poolBasic ? 0 : 1)
+      return walletIfoData.contract.harvestPool(poolId === PoolIds.poolBasic ? 0 : 1)
     })
     if (receipt?.status) {
       walletIfoData.setIsClaimed(poolId)

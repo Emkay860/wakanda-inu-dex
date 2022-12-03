@@ -41,6 +41,8 @@ import {
   getCakeFlexibleSideVaultV2Contract,
   getCakePredictionsContract,
   getPredictionsV1Contract,
+  getWkdCommitContract,
+  getLaunchContract,
 } from 'utils/contractHelpers'
 import { getMulticallAddress, getPredictionsV1Address, getZapAddress } from 'utils/addressHelpers'
 import {
@@ -84,10 +86,37 @@ export const useIfoV2Contract = (address: string) => {
   return useMemo(() => getIfoV2Contract(address, library.getSigner()), [address, library])
 }
 
+export const useWkdCommitContract = (address: string, withSignerIfPossible = true) => {
+  const { library, account } = useActiveWeb3React()
+  const signer = useMemo(
+    () => (withSignerIfPossible ? getProviderOrSigner(library, account) : null),
+    [withSignerIfPossible, library, account],
+  )
+  return useMemo(() => getWkdCommitContract(address, signer), [address, signer])
+
+  // useMemo(() => getWkdCommitContract(address, library.getSigner()), [address, library])
+}
+
+export const useLaunchPadContract = (address: string, withSignerIfPossible = true) => {
+  const { library, account } = useActiveWeb3React()
+  const signer = useMemo(
+    () => (withSignerIfPossible ? getProviderOrSigner(library, account) : null),
+    [withSignerIfPossible, library, account],
+  )
+  return useMemo(() => getLaunchContract(address, signer), [address, signer])
+
+  // useMemo(() => getWkdCommitContract(address, library.getSigner()), [address, library])
+}
+
 export const useIfoV3Contract = (address: string) => {
   const { library } = useActiveWeb3React()
   return useMemo(() => getIfoV3Contract(address, library.getSigner()), [address, library])
 }
+
+// export const useIfoV5Contract = (address: string) => {
+//   const { library } = useActiveWeb3React()
+//   return useMemo(() => getIfoV5Contract(address, library.getSigner()), [address, library])
+// }
 
 export const useERC20 = (address: string, withSignerIfPossible = true) => {
   const { library, account } = useActiveWeb3React()
