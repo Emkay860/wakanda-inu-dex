@@ -29,6 +29,17 @@ const farms: SerializedFarmConfig[] = [
     token: serializedTokens.wkd,
     quoteToken: serializedTokens.busd,
   },
+  {
+    pid: 2,
+    lpSymbol: 'BNB-BUSD LP',
+    lpAddresses: {
+      // eslint-disable-next-line spaced-comment
+      97: '',
+      56: '0xA610fa3c8F2418150A2b77dA216A0fF29b0fd43E',
+    },
+    token: serializedTokens.busd,
+    quoteToken: serializedTokens.wbnb,
+  },
 ]
 
 export default farms
