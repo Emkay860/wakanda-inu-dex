@@ -172,7 +172,7 @@ export default function AddLiquidity() {
 
   const { zapInEstimating, rebalancing, ...zapIn } = useZapIn({
     pair,
-    canZap,
+    canZap: false,
     currencyA,
     currencyB,
     currencyBalances,
@@ -519,13 +519,13 @@ export default function AddLiquidity() {
   const showAddLiquidity =
     (!!currencies[Field.CURRENCY_A] && !!currencies[Field.CURRENCY_B] && steps === Steps.Add) || !canZap
 
-  const showZapWarning =
-    preferZapInstead &&
-    !noAnyInputAmount &&
-    ((!rebalancing && !(!zapTokenCheckedA && !zapTokenCheckedB)) || (rebalancing && zapIn.priceSeverity > 3))
+  const showZapWarning = false
+  // preferZapInstead &&
+  // !noAnyInputAmount &&
+  // ((!rebalancing && !(!zapTokenCheckedA && !zapTokenCheckedB)) || (rebalancing && zapIn.priceSeverity > 3))
 
-  const showReduceZapTokenButton =
-    preferZapInstead && (zapIn.priceSeverity > 3 || zapIn.zapInEstimatedError) && maxAmounts[zapIn.swapTokenField]
+  const showReduceZapTokenButton = false
+  // preferZapInstead && (zapIn.priceSeverity > 3 || zapIn.zapInEstimatedError) && maxAmounts[zapIn.swapTokenField]
 
   const showRebalancingConvert =
     !showZapWarning &&
@@ -535,16 +535,16 @@ export default function AddLiquidity() {
     zapIn.isDependentAmountGreaterThanMaxAmount &&
     rebalancing
 
-  const showZapIsAvailable =
-    !zapMode &&
-    !showZapWarning &&
-    !noAnyInputAmount &&
-    (!zapTokenCheckedA || !zapTokenCheckedB) &&
-    !noLiquidity &&
-    !(
-      (pair && JSBI.lessThan(pair.reserve0.raw, MINIMUM_LIQUIDITY)) ||
-      (pair && JSBI.lessThan(pair.reserve1.raw, MINIMUM_LIQUIDITY))
-    )
+  const showZapIsAvailable = false
+  // !zapMode &&
+  // !showZapWarning &&
+  // !noAnyInputAmount &&
+  // (!zapTokenCheckedA || !zapTokenCheckedB) &&
+  // !noLiquidity &&
+  // !(
+  //   (pair && JSBI.lessThan(pair.reserve0.raw, MINIMUM_LIQUIDITY)) ||
+  //   (pair && JSBI.lessThan(pair.reserve1.raw, MINIMUM_LIQUIDITY))
+  // )
 
   return (
     <Page>

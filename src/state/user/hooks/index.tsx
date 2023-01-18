@@ -115,8 +115,8 @@ export function useZapModeManager() {
   const zapEnabled = useSelector<AppState, AppState['user']['userZapDisabled']>((state) => !state.user.userZapDisabled)
 
   const setZapEnable = useCallback(
-    (enable: boolean) => {
-      dispatch(setZapDisabled(!enable))
+    (_enable: boolean) => {
+      dispatch(setZapDisabled(false))
     },
     [dispatch],
   )
