@@ -72,7 +72,8 @@ export default function AddLiquidity() {
   const { account, chainId, library } = useActiveWeb3React()
   const expertMode = useIsExpertMode()
 
-  const [zapMode] = useZapModeManager()
+  // const [zapMode] = useZapModeManager()
+  const zapMode = false
   const [temporarilyZapMode, setTemporarilyZapMode] = useState(true)
   const [currencyIdA, currencyIdB] = router.query.currency || ['BNB', WKD[chainId]?.address]
   const [steps, setSteps] = useState(Steps.Choose)
