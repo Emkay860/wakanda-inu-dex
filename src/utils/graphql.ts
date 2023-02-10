@@ -5,16 +5,16 @@ import { GraphQLClient } from 'graphql-request'
 // Mostly for dev environment
 // No production env check since production preview might also need them
 export const getGQLHeaders = (endpoint: string) => {
-  if (endpoint === INFO_CLIENT) {
-    return {
-      'X-Sf':
-        process.env.NEXT_PUBLIC_SF_HEADER ||
-        // hack for inject CI secret on window
-        (typeof window !== 'undefined' &&
-          // @ts-ignore
-          window.sfHeader),
-    }
-  }
+  // if (endpoint === INFO_CLIENT) {
+  //   return {
+  //     origin:
+  //       process.env.NEXT_PUBLIC_SF_HEADER ||
+  //       // hack for inject CI secret on window
+  //       (typeof window !== 'undefined' &&
+  //         // @ts-ignore
+  //         window.nrHeader),
+  //   }
+  // }
   return undefined
 }
 
