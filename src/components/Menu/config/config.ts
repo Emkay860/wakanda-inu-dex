@@ -1,4 +1,4 @@
-import { MenuItemsType, SwapIcon, SwapFillIcon, EarnFillIcon, EarnIcon, RocketIcon } from '@pancakeswap/uikit'
+import { MenuItemsType, SwapIcon, SwapFillIcon, EarnFillIcon, EarnIcon, RocketIcon, MoreIcon } from '@pancakeswap/uikit'
 import { ContextApi } from 'contexts/Localization/types'
 import { DropdownMenuItems } from '@pancakeswap/uikit/src/components/DropdownMenu/types'
 import { ChainId } from '@pancakeswap/sdk'
@@ -60,6 +60,18 @@ const config: (
       hideSubNav: true,
       // supportChainIds: [ChainId.BSC],
       items: [],
+    },
+    {
+      label: '',
+      href: '/info',
+      icon: MoreIcon,
+      hideSubNav: true,
+      items: [
+        {
+          label: t('Info'),
+          href: '/info',
+        },
+      ],
     },
   ].filter((item) => filterItemBySupportChainId(item, chainId))
 
