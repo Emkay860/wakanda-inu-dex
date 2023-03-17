@@ -22,7 +22,7 @@ const TextLabel = styled(Text)`
   line-height: 1.1;
 
   ${({ theme }) => theme.mediaQueries.lg} {
-    font-size: 40px;
+    font-size: 20px;
   }
 `
 
