@@ -51,6 +51,17 @@ const farms: SerializedFarmConfig[] = [
     token: serializedTokens.usdt,
     quoteToken: serializedTokens.wbnb,
   },
+  {
+    pid: 4,
+    lpSymbol: 'WKD-USDT LP',
+    lpAddresses: {
+      // eslint-disable-next-line spaced-comment
+      97: '',
+      56: '0xC242cB18c047c1d37E5fc7d41903E07e882F5889',
+    },
+    token: serializedTokens.wkd,
+    quoteToken: serializedTokens.usdt,
+  },
 ]
 
 export default farms
