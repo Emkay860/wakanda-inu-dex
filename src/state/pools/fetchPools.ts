@@ -64,7 +64,7 @@ const availableRewards = poolsConfig.map((poolConfig) => {
 
 export const fetchPoolsTotalStaking = async () => {
   const balances = await multicall(erc20ABI, poolsBalanceOf)
-  const rewards = await multicall(wkdPoolABI, availableRewards)
+  // const rewards = await multicall(wkdPoolABI, availableRewards)
 
   return poolsConfig.map((p, index) => ({
     sousId: p.sousId,
