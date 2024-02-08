@@ -54,13 +54,13 @@ const poolsBalanceOf = poolsConfig.map((poolConfig) => {
   }
 })
 
-const availableRewards = poolsConfig.map((poolConfig) => {
-  return {
-    address: getAddress(poolConfig.contractAddress),
-    name: 'availableRewards',
-    params: [],
-  }
-})
+// const availableRewards = poolsConfig.map((poolConfig) => {
+//   return {
+//     address: getAddress(poolConfig.contractAddress),
+//     name: 'availableRewards',
+//     params: [],
+//   }
+// })
 
 export const fetchPoolsTotalStaking = async () => {
   const balances = await multicall(erc20ABI, poolsBalanceOf)
