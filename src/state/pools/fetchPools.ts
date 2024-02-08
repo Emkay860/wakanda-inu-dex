@@ -69,9 +69,10 @@ export const fetchPoolsTotalStaking = async () => {
   return poolsConfig.map((p, index) => ({
     sousId: p.sousId,
     // the first pool is having the stakingtoken and earning token as wkd, this is a workaround to ensure we dont don't add the tokens in the contract for reward to the total staked
-    totalStaked:
-      p.stakingToken.address.toLowerCase() === p.earningToken.address.toLowerCase()
-        ? new BigNumber(balances[index]).minus(new BigNumber(rewards[index])).toJSON()
-        : new BigNumber(balances[index]).toJSON(),
+    // totalStaked:
+    //   p.stakingToken.address.toLowerCase() === p.earningToken.address.toLowerCase()
+    //     ? new BigNumber(balances[index]).minus(new BigNumber(rewards[index])).toJSON()
+    //     : new BigNumber(balances[index]).toJSON(),
+    totalStaked: new BigNumber(balances[index]).toJSON(),
   }))
 }
